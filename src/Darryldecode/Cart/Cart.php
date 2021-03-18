@@ -632,7 +632,8 @@ class Cart
 
         // if no conditions were added, just return the sub total
         if (!$conditions->count()) {
-            return Helpers::formatValue($subTotal, $this->config['format_numbers'], $this->config);
+            //return Helpers::formatValue($subTotal, $this->config['format_numbers'], $this->config);
+            return number_format($subTotal, 2, '.' ,'.');
         }
 
         $conditions
@@ -644,7 +645,9 @@ class Cart
                 $process++;
             });
 
-        return Helpers::formatValue($newTotal, $this->config['format_numbers'], $this->config);
+        // return Helpers::formatValue($newTotal, $this->config['format_numbers'], $this->config);
+        return number_format($$newTotal, 2, '.' ,'.');
+
     }
 
     /**
